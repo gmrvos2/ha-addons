@@ -1,0 +1,52 @@
+name: "Inverter Bridge"
+version: "3.1.0"
+slug: "inverter-bridge"
+description: "Voltronic SolarPower inverter MQTT bridge — P17 protocol, auto-detect HID/RS232"
+url: "https://github.com/gmrvos2/ha-config"
+arch:
+  - aarch64
+startup: application
+boot: auto
+init: false
+
+# Odaberi uređaj ovisno o transport opciji
+devices:
+  - /dev/hidraw0
+  - /dev/ttyUSB0
+  - /dev/ttyUSB1
+  - /dev/ttyUSB2
+
+options:
+  mqtt_host: "core-mosquitto"
+  mqtt_port: 1883
+  mqtt_user: ""
+  mqtt_password: ""
+  poll_interval: 30
+  transport: "auto"
+  hid_device: "/dev/hidraw0"
+  serial_port: "/dev/ttyUSB0"
+  serial_baud: 2400
+  device_name: "Solar Inverter"
+  log_level: "info"
+
+schema:
+  mqtt_host: str
+  mqtt_port: int
+  mqtt_user: str
+  mqtt_password: str
+  poll_interval: int
+  transport: list(auto|hid|serial)
+  hid_device: str
+  serial_port: str
+  serial_baud: int
+  device_name: str
+  log_level: list(debug|info|warning|error)
+
+privileged:
+  - SYS_RAWIO
+  - SYS_ADMIN
+
+udev: true
+
+map:
+  - config:rw
