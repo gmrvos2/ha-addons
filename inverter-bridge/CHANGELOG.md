@@ -1,3 +1,14 @@
+## 3.2.0 (2026-04-11)
+- feat: first-time setup UX improvements
+- feat: `services: mqtt:need` — HA warns if MQTT broker not installed
+- feat: config field descriptions via `translations/en.yaml`
+- feat: preflight checks with clear error messages (MQTT not configured, no inverter found)
+- feat: added amd64 and armv7 architecture support
+- docs: README prerequisites section with Mosquitto setup steps
+- docs: step-by-step first-time installation guide
+- fix: config.yaml schema corrected to flat type format
+- fix: CHANGELOG.md added inside add-on directory (HA requires it there)
+
 ## 3.1.0 (2026-04-11)
 - feat: auto-detect transport — HID prioritized over RS232, no config change needed
 - feat: externalized all log messages to `messages.py` with ⚡ prefix (infosit.standards compliance)
