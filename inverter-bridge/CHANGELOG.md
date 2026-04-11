@@ -1,3 +1,9 @@
+## 3.2.2 (2026-04-11)
+- feat: DOCS.md — Documentation tab in HA UI with prerequisites, setup guide, troubleshooting
+- feat: startup preflight warnings in run.sh (MQTT credentials, USB device missing)
+- feat: all startup messages use ⚡ prefix for consistency
+- feat: English-only log messages in run.sh
+
 ## 3.2.1 (2026-04-11)
 - fix: clear error message when MQTT authentication fails (missing username/password)
 - fix: guides user to Configuration tab with step-by-step setup
