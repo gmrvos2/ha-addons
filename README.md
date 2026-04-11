@@ -128,7 +128,7 @@ The add-on creates these sensors automatically via MQTT discovery:
 
 This project was built with the help of:
 
-- **[Infosit d.o.o.](https://infosit.hr)** — AI infrastructure and development tooling
+- **[Infosit d.o.o.](https://infosit.com)** — AI infrastructure and development tooling
 - **[Claude Code](https://claude.ai/code) (Anthropic)** — AI-assisted development
 - **[Jesse Vincent / superpowers](https://github.com/obra/superpowers)** — development workflow plugin for Claude Code
 - **[MindFreeze/hassio-axpert](https://github.com/MindFreeze/hassio-axpert)** — hidraw approach reference
