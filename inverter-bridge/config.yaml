@@ -1,5 +1,5 @@
 name: "Inverter Bridge"
-version: "3.2.0"
+version: "3.2.1"
 slug: "inverter-bridge"
 description: "Voltronic SolarPower inverter MQTT bridge — P17 protocol, auto-detect HID/RS232"
 url: "https://github.com/gmrvos2/ha-addons"

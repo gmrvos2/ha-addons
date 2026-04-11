@@ -1,3 +1,7 @@
+## 3.2.1 (2026-04-11)
+- fix: clear error message when MQTT authentication fails (missing username/password)
+- fix: guides user to Configuration tab with step-by-step setup
+
 ## 3.2.0 (2026-04-11)
 - feat: first-time setup UX improvements
 - feat: `services: mqtt:need` — HA warns if MQTT broker not installed
