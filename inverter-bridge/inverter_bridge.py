@@ -812,8 +812,29 @@ def poll_and_publish(conn, client: mqtt.Client) -> bool:
     return True
 
 
+def _preflight_checks() -> bool:
+    """Validate configuration before starting. Returns True if OK."""
+    ok = True
+    if not MQTT_HOST:
+        log.error(msg.MQTT_HOST_EMPTY)
+        log.error(msg.MQTT_NOT_CONFIGURED)
+        ok = False
+
+    if TRANSPORT == "auto":
+        import glob as _g
+        if not os.path.exists(HID_DEVICE) and not _g.glob("/dev/ttyUSB*"):
+            log.error(msg.NO_TRANSPORT_FOUND)
+            ok = False
+
+    return ok
+
+
 def main():
     log.info(msg.STARTUP.format(transport=TRANSPORT, host=MQTT_HOST, port=MQTT_PORT))
+
+    if not _preflight_checks():
+        log.error(msg.SHUTDOWN)
+        sys.exit(1)
 
     client = connect_mqtt()
     conn   = None

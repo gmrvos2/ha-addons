@@ -1,20 +1,26 @@
 name: "Inverter Bridge"
-version: "3.1.0"
+version: "3.2.0"
 slug: "inverter-bridge"
 description: "Voltronic SolarPower inverter MQTT bridge — P17 protocol, auto-detect HID/RS232"
-url: "https://github.com/gmrvos2/ha-config"
+url: "https://github.com/gmrvos2/ha-addons"
 arch:
   - aarch64
+  - amd64
+  - armv7
 startup: application
 boot: auto
 init: false
 
-# Odaberi uređaj ovisno o transport opciji
+# USB devices the add-on needs access to
 devices:
   - /dev/hidraw0
   - /dev/ttyUSB0
   - /dev/ttyUSB1
   - /dev/ttyUSB2
+
+# Services this add-on depends on
+services:
+  - mqtt:need
 
 options:
   mqtt_host: "core-mosquitto"
@@ -30,17 +36,49 @@ options:
   log_level: "info"
 
 schema:
-  mqtt_host: str
-  mqtt_port: int
-  mqtt_user: str
-  mqtt_password: str
-  poll_interval: int
-  transport: list(auto|hid|serial)
-  hid_device: str
-  serial_port: str
-  serial_baud: int
-  device_name: str
-  log_level: list(debug|info|warning|error)
+  mqtt_host:
+    name: "MQTT Broker Host"
+    description: "Hostname of your MQTT broker. If you use the Mosquitto add-on, keep the default 'core-mosquitto'."
+    required: true
+  mqtt_port:
+    name: "MQTT Broker Port"
+    description: "Port of your MQTT broker. Default is 1883."
+  mqtt_user:
+    name: "MQTT Username"
+    description: "Username for MQTT authentication. Leave empty if your broker doesn't require auth."
+  mqtt_password:
+    name: "MQTT Password"
+    description: "Password for MQTT authentication. Leave empty if your broker doesn't require auth."
+  poll_interval:
+    name: "Poll Interval (seconds)"
+    description: "How often to read data from the inverter. Default 30 seconds."
+  transport:
+    name: "Transport"
+    description: "How to connect to the inverter. 'auto' detects USB HID or RS232 automatically."
+    enum:
+      - auto
+      - hid
+      - serial
+  hid_device:
+    name: "HID Device Path"
+    description: "Path to the USB HID device. Only change if your inverter uses a different hidraw device."
+  serial_port:
+    name: "Serial Port"
+    description: "Path to the RS232 serial port. Only relevant if using serial transport."
+  serial_baud:
+    name: "Serial Baud Rate"
+    description: "Baud rate for RS232 communication. Voltronic inverters typically use 2400."
+  device_name:
+    name: "Device Name"
+    description: "How the inverter appears in Home Assistant."
+  log_level:
+    name: "Log Level"
+    description: "Set to 'debug' for troubleshooting, 'info' for normal operation."
+    enum:
+      - debug
+      - info
+      - warning
+      - error
 
 privileged:
   - SYS_RAWIO

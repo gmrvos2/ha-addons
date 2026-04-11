@@ -62,6 +62,24 @@ MQTT_DISCONNECTED    = f"{P} MQTT disconnected rc={{rc}}"
 MQTT_CONNECT_RETRY   = f"{P} MQTT connect: {{error}} — retry 10s"
 MQTT_BAD_CREDENTIALS = "bad credentials"
 MQTT_ERROR           = "error"
+MQTT_NOT_CONFIGURED  = f"""{P} MQTT broker not configured!
+
+  To fix this:
+  1. Install the 'Mosquitto broker' add-on from the HA Add-on Store
+  2. Start the Mosquitto add-on
+  3. Go to Settings > Devices & Services > MQTT and configure it
+  4. Come back here and check that 'mqtt_host' is set to 'core-mosquitto'
+  5. Restart this add-on
+
+  The Inverter Bridge needs MQTT to publish sensor data to Home Assistant."""
+MQTT_HOST_EMPTY      = f"{P} MQTT host is empty — check add-on configuration"
+NO_TRANSPORT_FOUND   = f"""{P} No inverter found!
+
+  Make sure your Voltronic inverter is connected via USB:
+  - USB HID cable → should appear as /dev/hidraw0
+  - USB-to-RS232 adapter → should appear as /dev/ttyUSB0
+
+  Check: Settings > System > Hardware > All Hardware"""
 
 # --- Discovery ---
 DISCOVERY_PUBLISHED  = f"{P} Auto-discovery: {{sensors}} sensors + {{binary}} binary + mode"

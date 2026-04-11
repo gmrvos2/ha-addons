@@ -9,15 +9,36 @@ Custom Home Assistant add-ons for solar energy monitoring.
 
 | Add-on | Description | Version |
 |--------|-------------|---------|
-| [Inverter Bridge](inverter-bridge/) | Voltronic SolarPower inverter MQTT bridge | 3.1.0 |
+| [Inverter Bridge](inverter-bridge/) | Voltronic SolarPower inverter MQTT bridge | 3.2.0 |
 
 ## Installation
+
+### Prerequisites
+
+Before installing, make sure you have:
+
+1. **MQTT broker** — Install the **Mosquitto broker** add-on from the official HA add-on store:
+   - Go to **Settings** > **Add-ons** > **Add-on Store**
+   - Search for "Mosquitto broker" and install it
+   - Start the Mosquitto add-on
+   - Go to **Settings** > **Devices & Services** > **MQTT** and configure it
+   - *The Inverter Bridge will not work without an MQTT broker*
+
+2. **Inverter connected via USB** — Connect your Voltronic inverter to your HA machine with either:
+   - USB HID cable (the one that came with the inverter) — appears as `/dev/hidraw0`
+   - USB-to-RS232 serial adapter — appears as `/dev/ttyUSB0`
+
+### Install the add-on
 
 1. Open Home Assistant
 2. Go to **Settings** > **Add-ons** > **Add-on Store**
 3. Click the menu (top right) > **Repositories**
 4. Add this URL: `https://github.com/gmrvos2/ha-addons`
-5. Click **Close**, then find the add-on in the store and click **Install**
+5. Click **Close**, then find **Inverter Bridge** in the store
+6. Click **Install**
+7. Go to the **Configuration** tab and verify MQTT settings (defaults work if you use Mosquitto)
+8. Click **Start**
+9. Check the **Log** tab — you should see `⚡ Inverter Bridge v3.2.0` and sensor readings
 
 ---
 
