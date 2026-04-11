@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.pyo
+.claude/
+*.code-workspace
+.DS_Store
+.env
