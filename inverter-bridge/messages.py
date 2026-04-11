@@ -73,6 +73,19 @@ MQTT_NOT_CONFIGURED  = f"""{P} MQTT broker not configured!
 
   The Inverter Bridge needs MQTT to publish sensor data to Home Assistant."""
 MQTT_HOST_EMPTY      = f"{P} MQTT host is empty — check add-on configuration"
+MQTT_AUTH_FAILED     = f"""{P} MQTT authentication failed!
+
+  Your MQTT broker requires a username and password.
+  To fix this:
+  1. Go to this add-on's Configuration tab
+  2. Set 'mqtt_user' and 'mqtt_password'
+     (use the same credentials you configured in Mosquitto)
+  3. Restart this add-on
+
+  If you haven't set up MQTT users yet:
+  1. Go to Settings > People > Users
+  2. Create a new user (e.g., 'mqtt_inverter')
+  3. Use that username/password in this add-on's configuration"""
 NO_TRANSPORT_FOUND   = f"""{P} No inverter found!
 
   Make sure your Voltronic inverter is connected via USB:

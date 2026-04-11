@@ -608,8 +608,10 @@ def connect_mqtt() -> mqtt.Client:
             log.info(msg.MQTT_CONNECTED.format(host=MQTT_HOST, port=MQTT_PORT))
             c.publish(AVAIL_TOPIC, "online", retain=True)
             publish_discovery(c)
+        elif rc == 5:
+            log.error(msg.MQTT_AUTH_FAILED)
         else:
-            log.error(msg.MQTT_CONN_ERROR.format(rc=rc, reason=msg.MQTT_BAD_CREDENTIALS if rc==5 else msg.MQTT_ERROR))
+            log.error(msg.MQTT_CONN_ERROR.format(rc=rc, reason=msg.MQTT_ERROR))
 
     client.on_connect    = on_connect
     client.on_disconnect = lambda c, _ud, rc: log.warning(msg.MQTT_DISCONNECTED.format(rc=rc))
