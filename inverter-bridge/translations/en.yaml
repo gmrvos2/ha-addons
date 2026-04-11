@@ -1,0 +1,52 @@
+configuration:
+  mqtt_host:
+    name: MQTT Broker Host
+    description: >-
+      Hostname of your MQTT broker. If you use the Mosquitto add-on
+      (recommended), keep the default 'core-mosquitto'.
+  mqtt_port:
+    name: MQTT Broker Port
+    description: Port of your MQTT broker. Default is 1883.
+  mqtt_user:
+    name: MQTT Username
+    description: >-
+      Username for MQTT authentication. Leave empty if your broker
+      does not require authentication.
+  mqtt_password:
+    name: MQTT Password
+    description: >-
+      Password for MQTT authentication. Leave empty if your broker
+      does not require authentication.
+  poll_interval:
+    name: Poll Interval (seconds)
+    description: >-
+      How often to read data from the inverter. Lower values give
+      more frequent updates but increase USB traffic. Default: 30.
+  transport:
+    name: Transport
+    description: >-
+      How to connect to the inverter. 'auto' detects USB HID or
+      RS232 serial automatically — recommended for most users.
+  hid_device:
+    name: HID Device Path
+    description: >-
+      Path to the USB HID device. Only change this if your inverter
+      appears on a different hidraw device.
+  serial_port:
+    name: Serial Port
+    description: >-
+      Path to the RS232 serial port. Only relevant when using
+      serial transport.
+  serial_baud:
+    name: Serial Baud Rate
+    description: >-
+      Baud rate for RS232 communication. Voltronic inverters
+      typically use 2400.
+  device_name:
+    name: Device Name in Home Assistant
+    description: How the inverter appears in Home Assistant entities.
+  log_level:
+    name: Log Level
+    description: >-
+      Set to 'debug' for troubleshooting connection issues,
+      'info' for normal operation.
