@@ -9,7 +9,7 @@ Custom Home Assistant add-ons for solar energy monitoring.
 
 | Add-on | Description | Version |
 |--------|-------------|---------|
-| [Inverter Bridge](inverter-bridge/) | Voltronic SolarPower inverter MQTT bridge | 3.2.0 |
+| [Inverter Bridge](inverter-bridge/) | Voltronic SolarPower inverter MQTT bridge | 3.2.3 |
 
 ## Installation
 
@@ -38,7 +38,7 @@ Before installing, make sure you have:
 6. Click **Install**
 7. Go to the **Configuration** tab and verify MQTT settings (defaults work if you use Mosquitto)
 8. Click **Start**
-9. Check the **Log** tab — you should see `⚡ Inverter Bridge v3.2.0` and sensor readings
+9. Check the **Log** tab — you should see `⚡ Inverter Bridge v3.2.3` and sensor readings
 
 ---
 

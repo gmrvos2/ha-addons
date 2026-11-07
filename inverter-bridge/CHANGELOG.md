@@ -1,3 +1,7 @@
+## 3.2.3 (2026-11-07)
+- fix: build.yaml now defines base images for amd64 and armv7, matching the architectures declared in config.yaml (previously only aarch64, so builds on x86 and 32-bit ARM failed)
+- fix: removed stale hardcoded io.hass.version and io.hass.arch labels from build.yaml (Supervisor sets these per build)
+
 ## 3.2.2 (2026-04-11)
 - feat: DOCS.md — Documentation tab in HA UI with prerequisites, setup guide, troubleshooting
 - feat: startup preflight warnings in run.sh (MQTT credentials, USB device missing)
